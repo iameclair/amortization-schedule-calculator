@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Amortazation Schedule Calculator: Equal Total Payment</title>
+    <!-- Bootstrap -->
+     <link href="style.css" rel="stylesheet">
+    <link href="bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+  </head>
+  <body id="body">
+     <div class="container-fluid">
+     
+      <div class="row">
+        <div class="col-xs-12 col-md-6 calculator">
+        <div class="header">
+         <h2 id="title">Amortization Schedule Calculator</h2>
+        </div>
+        <div id="line"></div>
+         <h4 id="sub-title">Equal Total Payment</h4>
+         <form>
+          <div class="form-group input-c">
+            <label class="sr-only" for="InputAmount">Amount (in pound)</label>
+            <div class="input-group">
+              <div class="input-group-addon">$</div>
+              <input type="number" min="0" class="form-control" id="InputAmount" placeholder="Amount">
+              <div class="input-group-addon">.00</div>
+            </div>
+          </div>
+          <div class="form-group input-c">
+            <label class="sr-only" for="InterestRate">Interest (in %)</label>
+            <div class="input-group">
+              <div class="input-group-addon">%</div>
+              <input type="number" min="0" class="form-control" id="InterestRate" placeholder="Interest Rate" value="">
+              <div class="input-group-addon"></div>
+            </div>
+          </div>
+           <div class="form-group input-c">
+            <label class="sr-only" for="nOfPayments">Number of payments</label>
+            <div class="input-group">
+              <div class="input-group-addon">#</div>
+              <input type="number" min="0" class="form-control" id="NumberOfPayment" placeholder="Number of Payments" value="">
+              <div class="input-group-addon"></div>
+            </div>
+          </div>
+          <div id="error"></div> 
+          <div class="form-group"> 
+    		<div id="dh"><h4>Payment Frequency</h4></div>
+			<div class = "btn-group" id="menu">
+  			 <button type = "button" class = "btn btn-info">Monthly</button>
+  			 <button type = "button" class = "btn btn-info">Annually</button> 
+			</div>
+		 </div> 
+		     
+        </form>
+         <div class="form-group">
+        <div class="form-inline">
+             <button type="reset" class="btn btn-danger" id="reset">Reset</button>
+             <button type="submit" class="btn btn-success" id="calculate">Calculate</button>
+        </div>
+        </div>
+        </div> <!-- end column -->
+        
+        <div class="col-xs-12 col-md-6">
+           <div id="side">
+           <h2 class="use">Calculator Use</h2>
+
+			<p>This amortization schedule calculator allows you to create a payment table for a loan with equal loan payments for the life of a loan.</p>
+			<p>The amortization table shows how each payment is applied to the principal balance and the interest owed.</p>
+			<h4>The Payment Amount is Calculated as:</h4>
+			<p>Payment Amount = (Input Amount x Interest Rate)x(1 + interest rate)^n / (1 + interest rate)-1</p>
+			<h4>Interest is calculated as:</h4>
+			<p>Interest = Begining Balance x Interest Rate</p>
+			<h4>Principal Amount is calculated as:</h4>
+			<p>Principal = Payment Amount - Interest</p>
+			<h4>Ending Balance or Owed Amount is calculated as</h4>
+			<p>Ending Balance = Begining Balance - Principal</p>
+			<p>Say you are taking out a mortgage for $250000 at 5% interest for 360 payments, made monthly.</p>
+			<p> Enter these values into the calculator and click "Calculate" to produce an amortized schedule of monthly loan payments.</p>
+			<p> You can see that the payment amount stays the same over the course of the mortgage.</p>
+			<p>With each payment the principal owed increases and thes Interest to pay decreases</p>
+			<h4>Inputs values</h4>
+			<p>Input Amount is: The size or value of the loan.</p>
+			<p>Interest Rate is: The annual stated rate of the loan.</p>
+            <p>Number of Payments: The total number of payments, initial or remaining, to pay off the given loan amount.</p>
+            <p>Payment Frequency is: How often is the loan payment due?</p> 
+            <p>Typically loan payments are due monthly,but annually options is provided on the calculator.</p>
+           </div>
+        </div> <!-- end column 2 -->
+        
+      </div> <!-- end of row -->
+       <div class="row" id="table">
+        	<table class="table table-striped" id="myTable">
+ 				 <thead class="th">
+			      <tr>
+			        <th>Period #</th>
+			        <th>Bigining Balance</th>
+			        <th>Payment Amount</th>
+			        <th>Principal Amount</th>
+			        <th>Interest Amount</th>
+			        <th>Ending Balance (Owed)</th>
+			      </tr>
+			    </thead>
+			    <tbody id="tb">
+			    	
+			    </tbody>
+			</table>
+        </div> <!-- end row -->
+      
+    </div> <!-- end of container -->
+  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+     <script src="script.js" type="text/javascript"></script>
+  </body>
+</html>
